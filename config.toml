@@ -63,3 +63,4 @@ disqusShortname = "httpallincameragithubio"
 [taxonomies]
     # Optional. Use if you want tags and lists.
     category = "categories"
+    tags = "tags"

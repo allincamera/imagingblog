@@ -11,4 +11,4 @@ Powered by https://gohugo.io/ & https://disqus.com
 
 Here we discuss camera, welcome to add comments in page or send post https://github.com/allincamera/allincamera.github.io.git
 
-![About This Site](https://raw.githubusercontent.com/ptthisdan/imgur/master/about.png)
+![About This Site](https://raw.githubusercontent.com/allincamera/imgur/master/about.png)

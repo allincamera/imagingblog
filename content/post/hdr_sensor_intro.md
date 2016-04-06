@@ -28,9 +28,9 @@ i_min是sensor的底电流（blacklevel） ；
 Sensor 的动态范围： **高端的 >78 dB; 消费级的 60 dB 上下；**
 
 所以当sensor的动态范围小于图像场景动态范围的时候就会出现HDR问题----不是暗处看不清，就是亮处看不清，有的甚至两头都看不清。
-![Dark Blur Photo](https://raw.githubusercontent.com/ptthisdan/imgur/master/hdr_sensor_intro/dark_blur.png)
+![Dark Blur Photo](https://raw.githubusercontent.com/allincamera/imgur/master/hdr_sensor_intro/dark_blur.png)
 暗处看不清--前景处的广告牌和树影太暗看不清。
-![Bright Blur Photo](https://raw.githubusercontent.com/ptthisdan/imgur/master/hdr_sensor_intro/bright_blur.png)
+![Bright Blur Photo](https://raw.githubusercontent.com/allincamera/imgur/master/hdr_sensor_intro/bright_blur.png)
 亮处看不清--远处背景的白云变成了一团白色，完全看不清细节。
 
 ## 解决HDR问题的数学分析
@@ -51,7 +51,7 @@ Sensor 的动态范围： **高端的 >78 dB; 消费级的 60 dB 上下；**
 	
 从sensor的角度完整的DR 公式：
 
-![DR Formula](https://raw.githubusercontent.com/ptthisdan/imgur/master/hdr_sensor_intro/dr_formula.png)
+![DR Formula](https://raw.githubusercontent.com/allincamera/imgur/master/hdr_sensor_intro/dr_formula.png)
 
 - Qsat ：Well Capacity   idc:  底电流，tint：曝光时间，σ:噪声。
 	
@@ -71,7 +71,7 @@ Sensor 的动态范围： **高端的 >78 dB; 消费级的 60 dB 上下；**
 	
 当该像素值大于一个门限时，这个像素的数值就是来自于短曝光，小于一个数值，该像素值就来自于长曝光，在中间的话，就用长短曝光融合。这是个比较简化的方法，实际上还要考虑噪声等的影响。
 	
-![Curve Multi Frame Current](https://raw.githubusercontent.com/ptthisdan/imgur/master/hdr_sensor_intro/curve_multi_frame_current.png)
+![Curve Multi Frame Current](https://raw.githubusercontent.com/allincamera/imgur/master/hdr_sensor_intro/curve_multi_frame_current.png)
 		
 Current to charge曲线显示：imax增加a倍。
 这种多帧融合的方法需要非常快的readout time，而且即使readout时间再快，多帧图像也会有时间差，所以很难避免在图像融合时产生的鬼影问题。尤其在video HDR的时候，由于运算时间有限，无法进行复杂的去鬼影的运算，会有比较明显的问题。于是就出现了单帧的多曝光技术。
@@ -79,7 +79,7 @@ Current to charge曲线显示：imax增加a倍。
 ### 方法3：单帧空间域多曝光。
 最开始的方法是在sensor的一些像素上加ND filter，让这些像素获得的光强度变弱，所以当其他正常像素饱和的时候，这些像素仍然没有饱和，不过这样做生产成本比较高，同时给后边的处理增加很多麻烦。所以下面的这种隔行多曝光方法更好些。
 
-![Single Frame Multi Exposure](https://raw.githubusercontent.com/ptthisdan/imgur/master/hdr_sensor_intro/single_frame_multi_exp.png)
+![Single Frame Multi Exposure](https://raw.githubusercontent.com/allincamera/imgur/master/hdr_sensor_intro/single_frame_multi_exp.png)
 		
 如上图所示,两行短曝光，再两行长曝光,然后做图像融合，这样可以较好的避免多帧融合的问题，从而有效的在video中实现HDR。同时由于video的分辨率比still要低很多，所以这个方法所产生的分辨率降低也不是问题。这个方法是现在video hdr sensor的主流技术。
 	
@@ -93,6 +93,6 @@ Current to charge曲线显示：imax增加a倍。
 
 这是种仿人眼的设计，人眼会针对局部的图像特点进行自适应，既能够增加局部的对比度，同时保留大动态范围。这种算法比较复杂，有很多论文单独讨论。目前在sensor 端还没有使用这种技术，在ISP和后处理这种方法已经得到了非常好的应用。
 	
-![After HDR](https://raw.githubusercontent.com/ptthisdan/imgur/master/hdr_sensor_intro/2_5_hdr.png)
+![After HDR](https://raw.githubusercontent.com/allincamera/imgur/master/hdr_sensor_intro/2_5_hdr.png)
 		
 上图就是用方法2 + 方法5处理后的HDR图像。亮处与暗处的细节都得到了很好的展现。

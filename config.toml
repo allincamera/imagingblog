@@ -40,7 +40,7 @@ disqusShortname = "httpallincameragithubio"
     home = "Blog"
 
     # Metadata used to drive integrations.
-    googleAnalytics = "Your Google Analytics tracking code"
+    googleAnalytics = "UA-76087778-1"
     gravatarHash = "7100bb8dad0bb0641c343caf30e9613d"
 
     # Sidebar social links, these must be full URLs.

@@ -6,6 +6,8 @@ title = "图解噪声与去噪 之一： fix pattern noise（FPN）与 temporal 
 
 +++
 
+**本文系微信公众号《大话成像》，知乎专栏《大话成像 all in camera》原创文章，转载请注明出处。**
+
 ## 噪声分类
 	
 噪声有很多种分类方法，比如从频率上分，可以分为高频，中频，低频噪声。
@@ -31,7 +33,7 @@ Temporal noise视觉上是一种高频噪声。
 
 均值 `$\mu = \dfrac {\sum^{n}_{i=1}X_{i}}{n}$`
 
-标准差 `$sigma=\dfrac {1}{n-1}\sum ^{n}_{i=1}\left(u-x{i}\right)^{2}$`
+标准差 `$\sigma=\dfrac {1}{n-1}\sum ^{n}_{i=1}\left(u-x{i}\right)^{2}$`
 
 图像的标准差可以作为图像噪声水平的评价值。
 
